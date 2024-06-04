@@ -6,16 +6,16 @@ const collectEmployees = function () {
   // need to propmt user for first name last name and salary.
   const employees = [];
   let addemployees = true;
-
+  // while loop prompting for userr input
   while (addemployees) {
     const firstName = prompt("please enter first name.");
     const lastName = prompt("please enter last name.");
-    let salary = prompt();
-
+    let salary = prompt("please enter salary");
+    //  we had to change salarys prompt from a string to nothing so it could be a number data type so our for loop in our average salary has a number input
     if (isNaN(salary)) {
       salary = 0;
     }
-
+    // this essentslly is saying if theres any input other than 0 or larger salary will input 0
     const employee = {
       firstName: firstName,
       lastName: lastName,
@@ -23,11 +23,11 @@ const collectEmployees = function () {
     };
     employees.push(employee);
     console.log(employees);
+    // these are test consoles to see what we were outputting
 
     addemployees = confirm("would you like to add another employee?");
   }
   return employees;
-  // how to get each object into the array?
 };
 
 // Display the average salary
@@ -47,10 +47,10 @@ const displayAverageSalary = function (employeesAverage) {
 // Select a random employee
 const getRandomEmployee = function (employees) {
   // TODO: Select and display a random employee
-  console.log(employees);
+  // console.log(employees);
   // Generate a random index within the range of the array length
   const randomIndex = Math.floor(Math.random() * employees.length);
-  console.log(randomIndex);
+  // console.log(randomIndex);
   // Use the random index to access the element in the array
   const randomElement = employees[randomIndex];
 
@@ -101,7 +101,8 @@ const displayEmployees = function (employeesArray) {
 const trackEmployeeData = function () {
   const employees = collectEmployees();
 
-  console.table(employees);
+  // console.table(employees);
+  // commented this line out because the ref moduel didnt have a table
 
   displayAverageSalary(employees);
 
